@@ -1,0 +1,46 @@
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+
+import "./styles.css";
+
+function App() {
+  var [usuario, setNome] = useState("");
+  var [contraseña, setData] = useState("");
+
+  function acceder(URL) {
+    console.log("Usuario:", usuario);
+    console.log("contraseña:", contraseña);
+    window.open("https://www.google.com/");
+  }
+  
+  return (
+    <div>
+      <h1> Iniciar Sesion</h1>
+      <h3> Ingresa los siguientes datos</h3>
+
+      <p>
+        Ingresa tu Usuario:
+        <input
+          placeholder="Usuario"
+          onChange={(evt) => setNome(evt.target.value)}
+        />
+      </p>
+
+      <p>
+        Ingresa tu Contraseña:
+        <input
+          placeholder="contraseña"
+          onChange={(evt) => setData(evt.target.value)}
+        />
+      </p>
+      <button onClick={acceder}> Acceder</button>
+      <button style={{ position: "fixed", bottom: 0, right: "50%" }}>
+        Centro borde inferior
+      </button>
+      <button style={{ position: "fixed", top: "30%", right: 0 }}>Salir</button>
+    </div>
+  );
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
